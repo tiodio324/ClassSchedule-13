@@ -5,7 +5,7 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/ClassSchedule/',
+  base: '/ClassSchedule-13/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

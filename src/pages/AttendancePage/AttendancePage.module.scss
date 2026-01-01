@@ -1,0 +1,112 @@
+@use '@/styles/globalColors' as *;
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.page {
+  @include flex-column;
+  gap: $spacing-lg;
+}
+
+.header {
+  margin-bottom: $spacing-md;
+}
+
+.title {
+  @include heading-1;
+  margin: 0 0 $spacing-xs;
+}
+
+.subtitle {
+  font-size: $font-size-base;
+  color: $color-text-muted;
+  margin: 0;
+}
+
+.filters {
+  padding: $spacing-md !important;
+}
+
+.filterRow {
+  display: flex;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+  
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.filterItem {
+  flex: 1;
+  min-width: 180px;
+  
+  @include mobile {
+    min-width: 100%;
+  }
+}
+
+.notice {
+  @include flex-center;
+  padding: $spacing-xl !important;
+  text-align: center;
+  
+  p {
+    color: $color-text-muted;
+    margin: 0;
+  }
+}
+
+.attendanceList {
+  @include flex-column;
+}
+
+.attendanceRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md $spacing-lg;
+  border-bottom: 1px solid $color-border-light;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  &:hover {
+    background: $color-bg-secondary;
+  }
+}
+
+.index {
+  width: 32px;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  text-align: center;
+}
+
+.name {
+  flex: 1;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+}
+
+.status {
+  min-width: 140px;
+}
+
+.loading,
+.empty {
+  padding: $spacing-2xl;
+  text-align: center;
+  color: $color-text-muted;
+}
+
+.modalContent {
+  @include flex-column;
+  gap: $spacing-md;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: $spacing-md;
+}

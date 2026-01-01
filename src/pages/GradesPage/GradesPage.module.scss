@@ -1,0 +1,83 @@
+@use '@/styles/globalColors' as *;
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.page {
+  @include flex-column;
+  gap: $spacing-lg;
+}
+
+.header {
+  margin-bottom: $spacing-md;
+}
+
+.title {
+  @include heading-1;
+  margin: 0 0 $spacing-xs;
+}
+
+.subtitle {
+  font-size: $font-size-base;
+  color: $color-text-muted;
+  margin: 0;
+}
+
+.filters {
+  padding: $spacing-md !important;
+}
+
+.filterRow {
+  display: flex;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+  
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+.filterItem {
+  flex: 1;
+  min-width: 200px;
+  
+  @include mobile {
+    min-width: 100%;
+  }
+}
+
+.gradesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+}
+
+.noGrades {
+  color: $color-text-muted;
+}
+
+.moreGrades {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  padding: 2px 8px;
+}
+
+.modalContent {
+  @include flex-column;
+  gap: $spacing-md;
+}
+
+.modalSubject {
+  font-weight: $font-weight-medium;
+  color: $color-text-secondary;
+  margin: 0 0 $spacing-sm;
+}
+
+.gradeInput {
+  max-width: 120px;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: $spacing-md;
+}

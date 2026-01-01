@@ -58,12 +58,25 @@ export class DataStore {
     }
 
     if (this.filters.search) {
-      const search = this.filters.search.toLowerCase();
-      result = result.filter(s => 
-        s.firstName.toLowerCase().includes(search) ||
-        s.lastName.toLowerCase().includes(search) ||
-        (s.middleName && s.middleName.toLowerCase().includes(search))
-      );
+      const searchWords = this.filters.search
+        .toLowerCase()
+        .trim()
+        .split(/\s+/)
+        .filter(word => word.length > 0);
+      
+      if (searchWords.length > 0) {
+        result = result.filter(s => {
+          const fullName = [
+            s.firstName.toLowerCase(),
+            s.lastName.toLowerCase(),
+            s.middleName?.toLowerCase()
+          ]
+            .filter(Boolean)
+            .join(' ');
+          
+          return searchWords.every(word => fullName.includes(word));
+        });
+      }
     }
 
     return result.sort((a, b) => a.lastName.localeCompare(b.lastName, 'ru'));

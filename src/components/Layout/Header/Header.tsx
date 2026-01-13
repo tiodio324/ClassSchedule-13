@@ -52,12 +52,12 @@ export const Header = observer(() => {
         {isAuthenticated ? (
           <div className={styles.userInfo}>
             <span className={styles.role}>{getRoleName(currentRole)}</span>
-            <Button variant="ghost" size="sm" onClick={logout}>
+            <Button variant="ghost" size="sm" onClick={logout} className={styles.headerButton}>
               Выйти
             </Button>
           </div>
         ) : (
-          <Button variant="secondary" size="sm" onClick={openLoginModal}>
+          <Button variant="secondary" size="sm" onClick={openLoginModal} className={styles.headerButton}>
             Войти
           </Button>
         )}

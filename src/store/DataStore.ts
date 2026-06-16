@@ -242,7 +242,6 @@ export class DataStore {
     const student: Student = {
       id: uuidv4(),
       ...data,
-      middleName: data.middleName || undefined,
       enrollmentDate: data.enrollmentDate || now.split('T')[0],
       isActive: true,
       createdAt: now,

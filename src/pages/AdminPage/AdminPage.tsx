@@ -83,7 +83,7 @@ export const AdminPage = observer(() => {
       setStudentForm({
         firstName: s.firstName,
         lastName: s.lastName,
-        middleName: s.middleName || '',
+        middleName: s.middleName,
         groupId: s.groupId,
         email: s.email || '',
         phone: s.phone || '',
@@ -112,7 +112,7 @@ export const AdminPage = observer(() => {
   const handleSave = async () => {
     try {
       if (activeTab === 'students') {
-        if (!studentForm.firstName || !studentForm.lastName || !studentForm.groupId) {
+        if (!studentForm.firstName || !studentForm.lastName || !studentForm.middleName || !studentForm.groupId) {
           uiStore.showError('Заполните обязательные поля');
           return;
         }
@@ -173,7 +173,7 @@ export const AdminPage = observer(() => {
   const studentColumns: TableColumn<Student>[] = [
     { key: 'lastName', title: 'Фамилия' },
     { key: 'firstName', title: 'Имя' },
-    { key: 'middleName', title: 'Отчество', render: (v: unknown) => (v as string) || '—' },
+    { key: 'middleName', title: 'Отчество' },
     { 
       key: 'groupId', 
       title: 'Группа', 
@@ -383,7 +383,7 @@ export const AdminPage = observer(() => {
                 onChange={(e) => setStudentForm({ ...studentForm, firstName: e.target.value })}
               />
               <Input
-                label="Отчество"
+                label="Отчество *"
                 value={studentForm.middleName}
                 onChange={(e) => setStudentForm({ ...studentForm, middleName: e.target.value })}
               />
